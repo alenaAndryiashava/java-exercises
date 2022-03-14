@@ -13,4 +13,13 @@ public class Average {
     public double average(){
         return a*b*c/3;
     }
+
+    @Override
+    public String toString() {
+        return "Average{" +
+                "a=" + a +
+                ", b=" + b +
+                ", c=" + c +
+                '}'+" = "+average();
+    }
 }

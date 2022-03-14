@@ -51,7 +51,15 @@ public class Main {
         // print the average. The class should have a constructor
 
         Average average = new Average(1,2,3);
-        System.out.println(average.average());
+        System.out.println(average);
+
+        System.out.println("Task 6");
+        Employee employee1 = new Employee(600,6);
+        Employee employee2 = new Employee(499,7);
+        Employee employee3 = new Employee(800,9);
+        employee1.print();
+        employee2.print();
+        employee3.print();
 
         //6, Write a program by creating an "Employee" class having the following methods and print the final salary.
         // - constructor which accepts the salary, numbers of employee's working hours  per day as parameters
