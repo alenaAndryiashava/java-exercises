@@ -57,15 +57,23 @@ public class Main {
         Employee employee1 = new Employee(600,6);
         Employee employee2 = new Employee(499,7);
         Employee employee3 = new Employee(800,9);
-        employee1.print();
-        employee2.print();
-        employee3.print();
+        employee1.printFinalSalary();
+        employee2.printFinalSalary();
+        employee3.printFinalSalary();
 
-        //6, Write a program by creating an "Employee" class having the following methods and print the final salary.
-        // - constructor which accepts the salary, numbers of employee's working hours  per day as parameters
-        // - 'addSalary()' method which adds $10 to the salary of the employee if it is less than $500
-        // - "addWork()" method which adds $5 to the employee's salary if the number of working hours per day is
-        // more than 6 hours
+        System.out.println("Task 7");
+        int a = 5;
+        int b = 10;
+        System.out.println(Calculator.plus(a,b));
+        System.out.println(Calculator.minus(a,b));
+        System.out.println(Calculator.divide(a,b));
+        System.out.println(Calculator.multiply(a,b));
+        System.out.println(Calculator.percent(a,b));
+
+        System.out.println("Task 8");
+        MaxElementCalculater maxElementCalculater = new MaxElementCalculater(new int[]{-23,45,0,-30,49,77});
+        maxElementCalculater.printMaxElement();
 
     }
+
 }
