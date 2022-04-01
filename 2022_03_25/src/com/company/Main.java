@@ -33,7 +33,9 @@ public class Main {
 
         System.out.println("Task 2");
         GameGuessNumber gameGuessNumber = new GameGuessNumber();
-        int attempts = gameGuessNumber.readNumberOfAttempts();
-        gameGuessNumber.guessNumber(attempts);
+        // int attempts = gameGuessNumber.readNumberOfAttempts();
+        // gameGuessNumber.guessNumber(attempts);
+
+        gameGuessNumber.start();
     }
 }

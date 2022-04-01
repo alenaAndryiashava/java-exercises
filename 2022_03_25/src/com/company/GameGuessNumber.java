@@ -3,8 +3,14 @@ package com.company;
 import java.util.Scanner;
 
 public  class GameGuessNumber {
-    static Scanner input = new Scanner(System.in);
-    static int secretNumber = 9;
+    private static Scanner input = new Scanner(System.in);
+    private static int secretNumber = 9;
+
+    public void start(){
+        int attempts = readNumberOfAttempts();
+        guessNumber(attempts);
+        input.close();
+    }
 
     int readNumberOfAttempts() {
         System.out.print("Enter number of attempts: \n");
