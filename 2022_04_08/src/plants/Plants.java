@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 public abstract class  Plants {
     private String name;
-    private double height;
+    private int height;
     private int age;
-    private Season[] growSeasons;
 
-    public Plants(String name, double height, int age, Season[] growSeasons) {
+
+    public Plants(String name, int height, int age) {
         this.name = name;
         this.height = height;
         this.age = age;
-        this.growSeasons = growSeasons;
+
     }
 
     @Override
@@ -23,22 +23,39 @@ public abstract class  Plants {
                 ", age = " + age;
     }
 
-    public double getHeight() {
+    public int getHeight() {
         return height;
     }
 
-    public void setHeight(double height) {
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setHeight(int height) {
         this.height = height;
     }
 
-    public boolean isGrowSeason(Season season) {
-        for (int i = 0; i <growSeasons.length-1; i++) {
-            if(growSeasons[i]==(season)){
-                return true;
-            }
-        }
-        return false;
+    public void addYearToAge(){
+        this.age++;
     }
 
-    abstract void grow();
+    public abstract int getGrowPerSeason();
+
+    public void doSpring(){
+        addYearToAge();
+        setHeight(getHeight()+getGrowPerSeason());
+        System.out.println(getName() + " has grow in Spring, " + getHeight());
+    }
+
+    public abstract void doSummer();
+
+    public abstract void doAutumn();
+
+    public void doWinter(){
+        System.out.println(getName() + " is not growing in Winter, " + getHeight());
+    }
 }

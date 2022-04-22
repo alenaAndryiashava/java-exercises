@@ -15,6 +15,34 @@ package plants;
  * в котором происходи процесс роста этих двух растений в течение нескольких лет.
  * */
 public class Garden {
-    Flowers flower = new Flowers("Rose",15,1);
-    Trees tree = new Trees("Pine",25,1);
+    public static void main(String[] args) {
+        Plants flower = new Flowers("Rose", 0, 1);
+        Plants tree = new Trees("Pine", 100, 1);
+        Plants[] plants = {flower,tree};
+        int yearsToGrow = 2;
+
+        System.out.println("Growing plants for "+yearsToGrow+ " years");
+        growPlantsForNumberOfYears(plants,yearsToGrow);
+        System.out.println("Tree has height: "+tree.getHeight()+" and is "+tree.getAge()+ " years old");
+        System.out.println("Flower has height: "+flower.getHeight()+" and is "+flower.getAge()+ " years old");
+
+    }
+
+     public static void growPlantsForNumberOfYears(Plants[] plants, int numbersOfYears){
+         for (int i = 0; i < numbersOfYears; i++) {
+             for (Plants plant: plants) {
+                 plant.doSpring();
+                 plant.doSummer();
+                 plant.doAutumn();
+                 plant.doWinter();
+
+             }
+
+
+         }
+
+    }
 }
+
+
+
