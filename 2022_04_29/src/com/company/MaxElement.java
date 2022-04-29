@@ -10,10 +10,12 @@ public class MaxElement {
     //Написать метод, находящий макс. элемент массива целых чисел и протестировать его.
 
     public int getMaxElement() {
-        int maxElement = 0;
-        for (int i : array) {
-            if (i > maxElement) {
-                maxElement = i;
+        if (array.length==0) return -1;
+
+        int maxElement = array[0];
+        for (int i = 1; i <array.length ; i++) {
+            if (array[i] > maxElement) {
+                maxElement = array[i];
             }
         }
         return maxElement;
