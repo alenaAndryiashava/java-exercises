@@ -27,7 +27,7 @@ public class ListTask {
     public static List<String> YesOrNo(List<Integer> list1, List<Integer> list2) {
         List<String> resultYesNo = new ArrayList<>();
         for (int i = 0; i < list1.size(); i++) {
-            if (Objects.equals(list1.get(i), list2.get(i)))
+            if (list1.get(i).equals(list2.get(i)))
                 resultYesNo.add("Yes");
             else
                 resultYesNo.add("No");
