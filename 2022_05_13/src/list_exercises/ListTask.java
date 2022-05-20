@@ -1,8 +1,6 @@
 package list_exercises;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class ListTask {
     //    1. Есть два класса: Address с полями улица и номер дома и Person с полями
@@ -10,8 +8,8 @@ public class ListTask {
     //    // список их адресов
 
 
-    //    //2. Есть список с именами Ivan, Maria, Stephan, John, Amalia. Написать
-    //    // метод, возвращающий список в котором не содержатся имена исходного листа длиной 4
+    // 2. Есть список с именами Ivan, Maria, Stephan, John, Amalia. Написать
+    //    метод, возвращающий список в котором не содержатся имена исходного листа длиной 4
     public static List<String> listWithoutNamesLength4(List<String> list) {
         List<String> result = new ArrayList<>();
         for (String s : list) {
@@ -36,14 +34,54 @@ public class ListTask {
         return resultYesNo;
     }
 
-    //    //4. Написать метод, реверсирующий лист целых чисел. Возвращает его в обратном
+    //    4. Написать метод, реверсирующий лист целых чисел. Возвращает его в обратном
     //    порядке. Можно решать любым способом, какой вам нравится.
 
     public static List<Integer> ReversList(List<Integer> list) {
-        List<Integer> resultRevers = new ArrayList<>();
-        for (int i = list.size(); i > 0; i--) {
-            resultRevers.add(i);
-        }
-        return resultRevers;
+        //List<Integer> resultRevers = new ArrayList<>();
+        //for (int i = list.size(); i > 0; i--) {
+         //   resultRevers.add(i);
+        //}
+        Collections.reverse(list);
+        return list;
     }
+
+    public static List<Integer> joinTwoLists(List<Integer> list1, List<Integer>list2){
+        List <Integer>joined = new ArrayList(list1.size()+list2.size());
+        joined.addAll(list1);
+        joined.addAll(list2);
+        return joined;
+    }
+    public static List<Integer> withoutElementsMoreThan(List<Integer> ints, int n){
+        List<Integer> withoutMoreThan = new ArrayList<>();
+        for (int i:ints) {
+            if(i<=n)
+                withoutMoreThan.add(i);
+        }
+        return withoutMoreThan;
+    }
+
+    public static String shortestOrLongest(List<String>list){
+        String res = list.get(0);
+        String minSizeElement = list.get(0);
+        int indexMinSizeElement = 0;
+        String maxSizeElement = list.get(0);
+        int indexMaxSizeElement = 0;
+
+        for (int i = 0; i < list.size(); i++) {
+            if(list.get(i).length()<minSizeElement.length()){
+                minSizeElement = list.get(i);
+                indexMinSizeElement = i;
+            }else  if(list.get(i).length()>maxSizeElement.length()){
+                maxSizeElement = list.get(i);
+                indexMaxSizeElement = i;
+            }
+        }
+        if (indexMinSizeElement<indexMaxSizeElement)
+            res = minSizeElement;
+        else if (indexMaxSizeElement<indexMinSizeElement)
+            res = maxSizeElement;
+        return res;
+    }
+
 }
