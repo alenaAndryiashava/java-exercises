@@ -78,6 +78,14 @@ public class MapAndHashTasks {
         }
         return list;
     }
+    public static List<String> getDuplicates1(List<String>input){
+        Set<String> set = new HashSet<>();
+        List<String> duplicates = new ArrayList<>();
+        for (String s:input){
+            if(!set.add(s) &&!duplicates.contains(s))duplicates.add(s);
+        }
+        return duplicates;
+    }
 
     //6. Есть массив с положительными целыми числами.
    // Найти элемент(если он есть), который встречается в массиве > length/2  (доминантный).
@@ -96,6 +104,20 @@ public class MapAndHashTasks {
             }
         }
 
+        return -1;
+    }
+    public static int findDominant(int[] numbers){
+        Map<Integer,Integer> map = new HashMap<>();
+
+        for (int i= 0;i<numbers.length;i++){
+            if(map.containsKey(numbers[i]))
+                map.put(numbers[i],map.get(numbers[i]+1));
+            else map.put((numbers[i]),1);
+        }
+        for (int key:map.keySet()){
+            if(map.get(key)>numbers.length/2)
+                return key;
+        }
         return -1;
     }
 }

@@ -103,6 +103,26 @@ class MapAndHashTasksTest {
         assertEquals(expected,actual);
     }
     @Test
+    void testGetDuplicates1() {
+        List<String> input = Arrays.asList("Ivan", "Maria", "Piotr", "Anna", "Maria", "Ivan");
+        Set<String> expected = new HashSet<>();
+        expected.add("Maria");
+        expected.add("Ivan");
+        Set<String>actual = new HashSet<>(MapAndHashTasks.getDuplicates(input));
+        assertEquals(expected,actual);
+    }
+    @Test
+    void testGetDuplicates1_three_duplicates() {
+        List<String> input = Arrays.asList("Ivan", "Maria", "Piotr", "Anna", "Maria", "Ivan","Marya","Ivan");
+        Set<String> expected = new HashSet<>();
+        expected.add("Maria");
+        expected.add("Ivan");
+        expected.add("Maria");
+        expected.add("Ivan");
+        Set<String>actual = new HashSet<>(MapAndHashTasks.getDuplicates(input));
+        assertEquals(expected,actual);
+    }
+    @Test
     void testGetDuplicates_no_duplicates() {
         List<String> input = Arrays.asList("Ivan", "Maria", "Piotr", "Anna");
         List<String> expected = Arrays.asList();
@@ -113,13 +133,37 @@ class MapAndHashTasksTest {
     @Test
     void testGetDominantNumber() {
         int[] actual = {2,2,2,4};
-        int expected = 2;
-        assertEquals(expected,MapAndHashTasks.getDominantNumber(actual));
+        assertEquals(2,MapAndHashTasks.getDominantNumber(actual));
     }
     @Test
     void testGetDominantNumber_no_dominantNumber() {
         int[] actual = {2,2,3,4};
-        int expected = -1;
-        assertEquals(expected,MapAndHashTasks.getDominantNumber(actual));
+        assertEquals(-1,MapAndHashTasks.getDominantNumber(actual));
+    }
+
+    @Test
+    void testFindDominant_no_dominant() {
+        int[] actual = {5,5,4,4,5,4};
+        assertEquals(-1,MapAndHashTasks.getDominantNumber(actual));
+    }
+    @Test
+    void testFindDominant_one_elementt() {
+        int[] actual = {6};
+        assertEquals(6,MapAndHashTasks.getDominantNumber(actual));
+    }
+    @Test
+    void testFindDominant_two_element() {
+        int[] actual = {5,4};
+        assertEquals(-1,MapAndHashTasks.getDominantNumber(actual));
+    }
+    @Test
+    void testFindDominant_exists() {
+        int[] actual = {5,5,4,4,5,4,4};
+        assertEquals(4,MapAndHashTasks.getDominantNumber(actual));
+    }
+    @Test
+    void testFindDominant_two_equals() {
+        int[] actual = {5,5};
+        assertEquals(5,MapAndHashTasks.getDominantNumber(actual));
     }
 }
