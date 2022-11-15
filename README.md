@@ -1,2 +1,2 @@
-# 25m-java-exercises
+#java-exercises
 homework
